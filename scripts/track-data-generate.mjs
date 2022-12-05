@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 
-const FILES_PATH = '../tracks/'
+const FILES_PATH = '../files/tracks/'
 const DATA_PATH = '../data/tracks.json'
 
 const files = await fs.readdir(FILES_PATH)
@@ -13,14 +13,14 @@ for (const file of files) {
 
   const [year, month, day] = file.slice(0, 10).split('-')
 
-  const created_at = (new Date(year, month -1, day)).valueOf()
-  const released_at = null
+  const date = (new Date(year, month -1, day)).valueOf()
+  const release_id = null
   
   const track = {
     id,
     file,
-    created_at,
-    released_at,
+    date,
+    release_id,
   }
 
   tracks.push(track)
